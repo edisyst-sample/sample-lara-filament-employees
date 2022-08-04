@@ -7,6 +7,8 @@ use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
+use Filament\Resources\Pages\CreateRecord;
+use Filament\Resources\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -16,18 +18,20 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
+use Illuminate\Support\Facades\Hash;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationGroup = 'User Management';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Card::make()
+                Forms\Components\Card::make()
                     ->schema([
                         TextInput::make('name')
                             ->required()

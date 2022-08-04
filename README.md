@@ -13,3 +13,6 @@ In App\Http\Requests\Auth\LoginRequest imposto
 - tempo di attesa = 5 minuti = 300 seconds
 
 php artisan make:filament-resource Country
+
+
+Esiste anche la rotta /api/employees con tutti gli Employee
